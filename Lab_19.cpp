@@ -46,7 +46,7 @@ public:
         }
     };
 
-    void addToBack (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
+    void addToBack (double rating, string comment) {
 
         ReviewNode* newNode = new ReviewNode;
 
@@ -64,7 +64,7 @@ public:
         }
     };
 
-    void DisplayList (ReviewNode* head) {
+    void DisplayList () {
         if (head == nullptr) {
             cout << "Somin ain't right\n";
             return;
@@ -155,6 +155,12 @@ public:
 
 
 int main() {
+    const int NUM_MOVIES = 4;
 
-    Movie[0]->loadFiles("Reviews");
+    Movie* movies[NUM_MOVIES];
+    movies[0] = new Movie("HTTYD");
+
+
+
+    movies
 };
