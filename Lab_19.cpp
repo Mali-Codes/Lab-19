@@ -100,6 +100,7 @@ public:
         string comment;
 
         while (inFile >> rating) {
+            inFile.ignore();
             getline(inFile, comment);
             AddToFront(rating, comment);
         }
@@ -162,5 +163,8 @@ int main() {
 
 
 
-    movies
+    movies[0]->loadFiles("reviews1.txt");
+
+
+    movies[0]->DisplayList();
 };
