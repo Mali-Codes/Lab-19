@@ -12,6 +12,30 @@ struct ReviewNode {
     ReviewNode* next;
 };
 
+
+class Movie {
+    double rating;
+    string comment;
+    ReviewNode* next;
+};
+
+
+class Movie{
+private:
+
+    string title;
+    ReviewNode* head;
+    ReviewNode* tail;
+
+public:
+
+    title = movieTitle;
+    head = nullptr;
+    tail = nullptr;
+
+}
+
+
 void AddToFront (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
 
     ReviewNode* newNode = new ReviewNode;
