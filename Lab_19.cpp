@@ -88,6 +88,24 @@ public:
         double average = sum / count;
         cout << "Average: " << average << "\n";
     }
+
+    void loadFiles(string filename) {.  //used an example to build this
+        ifstream inFile(filename);
+
+        if (!inFile) {
+            cout << "Could not read" << endl;
+            return;
+        }
+        double rating;
+        string comment;
+
+        while (inFile >> rating) {
+            getline(inFile, comment);
+            AddToFront(rating, comment);
+        }
+
+        inFile.close();
+    }
 };
 // int main() {
 
@@ -148,15 +166,4 @@ int main() {
         new Movie("Inception"),
         new Movie("Batman")
     };
-
-    cout << "Movie reviews" << endl;
-    movies[0]->AddToFront(4.8, "Incredible story about hope and friendship");
-    movies[0]->AddToFront(4.9, "Best prison drama ever made");
-    movies[0]->AddToFront(4.7, "Timeless masterpiece");
-    
-    for (int i = 0; i < NUM_MOVIES; ++i) {
-        
-    }
-
-    return 0;
 }
