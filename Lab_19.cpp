@@ -4,16 +4,10 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 struct ReviewNode {
-    double rating;
-    string comment;
-    ReviewNode* next;
-};
-
-
-class Movie {
     double rating;
     string comment;
     ReviewNode* next;
@@ -37,7 +31,7 @@ public:
 };
 
 
-void AddToFront (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
+void AddToFront (double rating, string comment) {
 
     ReviewNode* newNode = new ReviewNode;
 
@@ -155,7 +149,9 @@ int main() {
     movies[0]->AddToBack(5.0,  "Masterpiece.");
     movies[0]->AddToFront(4.8, "Timeless.");
 
-    
+       for (int i = 0; i < NUM_MOVIES; ++i) {
+        movies[i]->print();
+    }
     
 
 }
