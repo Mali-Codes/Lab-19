@@ -89,7 +89,7 @@ public:
         cout << "Average: " << average << "\n";
     }
 
-    void loadFiles(string filename) {.  //used an example to build this
+    void loadFiles(string filename) {  //used an example to build this
         ifstream inFile(filename);
 
         if (!inFile) {
@@ -156,14 +156,5 @@ public:
 
 int main() {
 
-    ReviewNode* head = nullptr;
-    ReviewNode* tail = nullptr;
-
-  const int NUM_MOVIES = 4;
-    Movie* movies[NUM_MOVIES] = {
-        new Movie("HTTYD"),
-        new Movie("Starwars"),
-        new Movie("Inception"),
-        new Movie("Batman")
-    };
-}
+    Movie[0]->loadFiles("Reviews");
+};
