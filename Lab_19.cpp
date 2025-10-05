@@ -14,7 +14,7 @@ struct ReviewNode {
 };
 
 
-class Movie{
+class Movie {
 private:
 
     string title;
@@ -28,67 +28,67 @@ public:
     head = nullptr;
     tail = nullptr;
     }
-};
 
 
-void AddToFront (double rating, string comment) {
 
-    ReviewNode* newNode = new ReviewNode;
+    void AddToFront (double rating, string comment) {
 
-    newNode->rating = rating;
-    newNode->comment = comment;
-    newNode->next = head;
-    
-    head = newNode;
+        ReviewNode* newNode = new ReviewNode;
 
-    if (tail == nullptr) {
-        tail = newNode;
-    }
-};
-
-void addToBack (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
-
-    ReviewNode* newNode = new ReviewNode;
-
-    newNode->rating = rating;
-    newNode->comment = comment;
-    newNode->next = nullptr;            // big difference
-
-    if (tail != nullptr) {
-        tail->next = newNode;
-    }
-    tail = newNode;
-
-    if (head == nullptr) {
-        head = newNode;
-    }
-};
-
-void DisplayList (ReviewNode* head) {
-    if (head == nullptr) {
-        cout << "Somin ain't right\n";
-        return;
-    }
-
-    int count = 0;
-    double sum = 0.0;
-    ReviewNode* current = head;
-
-    while (current != nullptr) {
-        count++;
-        sum += current->rating;
-    
-        cout << "   > Review #" << count << ": " << current->rating 
-            << ": " << current->comment << endl;
-
-        current = current->next;
+        newNode->rating = rating;
+        newNode->comment = comment;
+        newNode->next = head;
         
+        head = newNode;
+
+        if (tail == nullptr) {
+            tail = newNode;
+        }
+    };
+
+    void addToBack (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
+
+        ReviewNode* newNode = new ReviewNode;
+
+        newNode->rating = rating;
+        newNode->comment = comment;
+        newNode->next = nullptr;            
+
+        if (tail != nullptr) {
+            tail->next = newNode;
+        }
+        tail = newNode;
+
+        if (head == nullptr) {
+            head = newNode;
+        }
+    };
+
+    void DisplayList (ReviewNode* head) {
+        if (head == nullptr) {
+            cout << "Somin ain't right\n";
+            return;
+        }
+
+        int count = 0;
+        double sum = 0.0;
+        ReviewNode* current = head;
+
+        while (current != nullptr) {
+            count++;
+            sum += current->rating;
+        
+            cout << "   > Review #" << count << ": " << current->rating 
+                << ": " << current->comment << endl;
+
+            current = current->next;
+            
+        }
+
+        double average = sum / count;
+        cout << "Average: " << average << "\n";
     }
-
-    double average = sum / count;
-    cout << "Average: " << average << "\n";
-}
-
+};
 // int main() {
 
 //     //Make the list
@@ -138,6 +138,9 @@ void DisplayList (ReviewNode* head) {
 
 int main() {
 
+    ReviewNode* head = nullptr;
+    ReviewNode* tail = nullptr;
+
   const int NUM_MOVIES = 4;
     Movie* movies[NUM_MOVIES] = {
         new Movie("HTTYD"),
@@ -146,12 +149,14 @@ int main() {
         new Movie("Batman")
     };
 
-    movies[0]->AddToBack(5.0,  "Masterpiece.");
-    movies[0]->AddToFront(4.8, "Timeless.");
-
-       for (int i = 0; i < NUM_MOVIES; ++i) {
-        movies[i]->print();
-    }
+    cout << "Movie reviews" << endl;
+    movies[0]->AddToFront(4.8, "Incredible story about hope and friendship");
+    movies[0]->AddToFront(4.9, "Best prison drama ever made");
+    movies[0]->AddToFront(4.7, "Timeless masterpiece");
     
+    for (int i = 0; i < NUM_MOVIES; ++i) {
+        
+    }
 
+    return 0;
 }
