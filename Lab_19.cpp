@@ -121,19 +121,26 @@ int main() {
 
     Movie* movies[NUM_MOVIES];
     movies[0] = new Movie("HTTYD");
-    // movies[1] = new Movie("Batman");
-    // movies[2] = new Movie("StarWars");
-    // movies[3] = new Movie("Demon Slayer");
+    movies[1] = new Movie("Batman");
+    movies[2] = new Movie("StarWars");
+    movies[3] = new Movie("Demon Slayer");
 
 
     movies[0]->loadFiles("HTTYD.txt");
-    // movies[1]->loadFiles("Batman.txt");
-    // movies[2]->loadFiles("StarWars.txt");
-    // movies[3]->loadFiles("Demon_Slayer.txt");
-
-
     movies[0]->DisplayList();
-    // movies[1]->DisplayList();
-    // movies[2]->DisplayList();
-    // movies[3]->DisplayList();
+
+    movies[1]->loadFiles("Batman.txt");
+    movies[1]->DisplayList();
+
+    movies[2]->loadFiles("StarWars.txt");
+    movies[2]->DisplayList();
+
+    movies[3]->loadFiles("Demon_Slayer.txt");
+    movies[3]->DisplayList();
+
+    for (int i = 0; i < NUM_MOVIES; i++) {  
+        delete movies[i];
+    }
+
+    return 0;
 };
