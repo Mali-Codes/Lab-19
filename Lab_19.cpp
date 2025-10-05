@@ -31,8 +31,7 @@ public:
     tail = nullptr;
     }
 
-
-
+    //adds to front
     void AddToFront (double rating, string comment) {
 
         ReviewNode* newNode = new ReviewNode;
@@ -47,7 +46,7 @@ public:
             tail = newNode;
         }
     };
-
+    //adds to back - not really needed for this lab
     void addToBack (double rating, string comment) {
 
         ReviewNode* newNode = new ReviewNode;
@@ -65,7 +64,7 @@ public:
             head = newNode;
         }
     };
-
+    //displays list
     void DisplayList () {
         if (head == nullptr) {
             cout << "Somin ain't right\n";
@@ -90,7 +89,7 @@ public:
         double average = sum / count;
         cout << "Average: " << average << "\n";
     }
-
+    //loads the files
     void loadFiles(string filename) {  //used an example to build this
         ifstream inFile(filename);
 
@@ -113,7 +112,7 @@ public:
     }
 
 };
-
+//main function to run it
 int main() {
     srand(time(0));
 
@@ -138,6 +137,7 @@ int main() {
     movies[3]->loadFiles("Demon_Slayer.txt");
     movies[3]->DisplayList();
 
+    //memory cleaning
     for (int i = 0; i < NUM_MOVIES; i++) {  
         delete movies[i];
     }
