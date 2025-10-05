@@ -29,11 +29,12 @@ private:
 
 public:
 
+    Movie(string movieTitle) {
     title = movieTitle;
     head = nullptr;
     tail = nullptr;
-
-}
+    }
+};
 
 
 void AddToFront (ReviewNode*& head, ReviewNode*& tail, double rating, string comment) {
@@ -94,48 +95,67 @@ void DisplayList (ReviewNode* head) {
     cout << "Average: " << average << "\n";
 }
 
+// int main() {
+
+//     //Make the list
+//     ReviewNode* head = nullptr;
+//     ReviewNode* tail = nullptr;
+
+//     // User choice
+//     int choice;
+//     double rating;
+//     string comment;
+
+//     string continueChoiceInput = "y";                /////////////////ORIGINAL??????????
+
+//     while (continueChoiceInput == "y" || continueChoiceInput == "Y") {
+//         cout << "[1] add to the front\n";
+//         cout << "[2] add to the back\n";
+//         cout << "Which one?: ";
+//         cin >> choice;
+
+
+//         cout << "Enter rating (1 - 5): ";
+//         cin >> rating;
+//         cin.ignore();
+
+//         cout << "Enter comment: ";
+//         getline(cin, comment);
+
+//         if (choice == 1) {                  /////////// Change from an if
+//             AddToFront(head, tail, rating, comment);
+//         }
+//         else if (choice == 2) {
+//             addToBack(head, tail, rating, comment);
+//         }
+        
+//         cout << "Want to add another review? (y/n): ";
+//         cin >> continueChoiceInput;
+//         cin.ignore();
+        
+
+//     DisplayList(head);
+//     }
+
+// }
+
+// //blueprinting
+
+
 int main() {
 
-    //Make the list
-    ReviewNode* head = nullptr;
-    ReviewNode* tail = nullptr;
+  const int NUM_MOVIES = 4;
+    Movie* movies[NUM_MOVIES] = {
+        new Movie("HTTYD"),
+        new Movie("Starwars"),
+        new Movie("Inception"),
+        new Movie("Batman")
+    };
 
-    // User choice
-    int choice;
-    double rating;
-    string comment;
+    movies[0]->AddToBack(5.0,  "Masterpiece.");
+    movies[0]->AddToFront(4.8, "Timeless.");
 
-    string continueChoiceInput = "y";
-
-    while (continueChoiceInput == "y" || continueChoiceInput == "Y") {
-        cout << "[1] add to the front\n";
-        cout << "[2] add to the back\n";
-        cout << "Which one?: ";
-        cin >> choice;
-
-
-        cout << "Enter rating (1 - 5): ";
-        cin >> rating;
-        cin.ignore();
-
-        cout << "Enter comment: ";
-        getline(cin, comment);
-
-        if (choice == 1) {                  /////////// Change from an if
-            AddToFront(head, tail, rating, comment);
-        }
-        else if (choice == 2) {
-            addToBack(head, tail, rating, comment);
-        }
-        
-        cout << "Want to add another review? (y/n): ";
-        cin >> continueChoiceInput;
-        cin.ignore();
-        
-
-    DisplayList(head);
-    }
+    
+    
 
 }
-
-//blueprinting
