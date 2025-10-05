@@ -5,6 +5,8 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 struct ReviewNode {
@@ -98,35 +100,40 @@ public:
         }
         double rating;
         string comment;
+        int count = 0;
 
-        while (inFile >> rating) {
-            inFile.ignore();
-            getline(inFile, comment);
+        while (getline(inFile, comment)) {
+            double rating = (rand() % 41 + 10) / 10.0;  // Generates 1.0, 1.1, 1.2, ... 5.0
+            
             AddToFront(rating, comment);
+            count++;
         }
         cout << "files from: " << filename << endl;
         inFile.close();
     }
+
 };
 
 int main() {
+    srand(time(0));
+
     const int NUM_MOVIES = 4;
 
     Movie* movies[NUM_MOVIES];
     movies[0] = new Movie("HTTYD");
-    movies[1] = new Movie("Batman");
-    movies[2] = new Movie("StarWars");
-    movies[3] = new Movie("Demon Slayer");
+    // movies[1] = new Movie("Batman");
+    // movies[2] = new Movie("StarWars");
+    // movies[3] = new Movie("Demon Slayer");
 
 
     movies[0]->loadFiles("HTTYD.txt");
-    movies[1]->loadFiles("Batman.txt");
-    movies[2]->loadFiles("StarWars.txt");
-    movies[3]->loadFiles("Demon_Slayer.txt");
+    // movies[1]->loadFiles("Batman.txt");
+    // movies[2]->loadFiles("StarWars.txt");
+    // movies[3]->loadFiles("Demon_Slayer.txt");
 
 
     movies[0]->DisplayList();
-    movies[1]->DisplayList();
-    movies[2]->DisplayList();
-    movies[3]->DisplayList();
+    // movies[1]->DisplayList();
+    // movies[2]->DisplayList();
+    // movies[3]->DisplayList();
 };
